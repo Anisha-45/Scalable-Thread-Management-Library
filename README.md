@@ -40,7 +40,6 @@ threadlab_web.cpp → Main C++ backend + embedded HTML + JS frontend
 httplib.h → Header-only HTTP server library (required)
 README.md → Project documentation
 
-> ⚠️ Everything runs from a **single .cpp file** — easy to compile and perfect for university projects.
 
 ---
 
