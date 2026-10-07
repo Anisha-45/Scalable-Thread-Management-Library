@@ -17,6 +17,7 @@
 #include <string>
 #include <type_traits>
 #include <sstream>
+#include <cstdlib>
 
 // ==== Windows version hack for httplib ====
 #ifdef _WIN32
@@ -2084,7 +2085,10 @@ int main() {
     cout << "=========================================\n";
     cout << "Open your browser at: http://localhost:8080\n";
 
-    svr.listen("0.0.0.0", 8080);
+    const char* port_env = std::getenv("PORT");
+    int port = port_env ? std::stoi(port_env) : 8080;
+    cout << "Server running on port: " << port << "\n";
+    svr.listen("0.0.0.0", port);
     manager.shutdownAll();
     return 0;
 }
